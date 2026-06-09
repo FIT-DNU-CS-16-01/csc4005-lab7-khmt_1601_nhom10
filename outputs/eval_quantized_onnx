@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.9721166032953105,
+  "macro_f1": 0.9612746153719229,
+  "onnx_path": "models/vit_smartcampus_dynamic_int8.onnx",
+  "model_size_mb": 84.41766452789307,
+  "num_samples": 789,
+  "classes": [
+    "classroom",
+    "computerroom",
+    "library",
+    "corridor",
+    "office"
+  ]
+}

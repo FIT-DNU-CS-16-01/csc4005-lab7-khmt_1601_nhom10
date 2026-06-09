@@ -45,6 +45,7 @@ def main() -> None:
         model_input=str(input_path),
         model_output=str(output_path),
         weight_type=weight_type,
+        op_types_to_quantize=["MatMul", "Gemm"]
     )
 
     report = {
