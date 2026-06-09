@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import onnx  # Dùng để dọn sạch shape lỗi hệ thống
 
 from onnxruntime.quantization import QuantType, quantize_dynamic
-
 from src.utils import file_size_mb, save_json
 
 
@@ -25,6 +25,19 @@ def main() -> None:
 
     if not input_path.exists():
         raise FileNotFoundError(f"Input ONNX not found: {input_path}")
+
+    model = onnx.load(str(input_path))
+    
+    # 1. Xóa shape ghim ở các đường truyền nội bộ (Nơi chứa lỗi 768 vs 5)
+    model.graph.ClearField("value_info")
+    
+    # 2. Xóa shape ghim ở cổng đầu ra cuối cùng
+    for output in model.graph.output:
+        if output.type.HasField("tensor_type"):
+            output.type.tensor_type.ClearField("shape")
+            
+    onnx.save(model, str(input_path))
+    # ==============================================================================
 
     weight_type = QuantType.QInt8 if args.weight_type == "QInt8" else QuantType.QUInt8
 
