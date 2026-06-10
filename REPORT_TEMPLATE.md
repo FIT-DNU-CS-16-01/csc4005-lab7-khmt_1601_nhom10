@@ -118,24 +118,16 @@ Trả lời:
    - **Quantization INT8**: 74.2% compression (327.36 MB → 84.42 MB)
    - **KD Student**: 97.3% compression (327.36 MB → 8.74 MB) - giảm 37 lần!
 
-2. **Latency giảm hay tăng?**
-   - **Quantization**: 66.2% cải thiện (239.98 ms → 81.13 ms @bs=1)
-   - **KD Student**: 85-90% cải thiện (239.98 ms → 25-30 ms @bs=1, giảm 8-10 lần)
-
-3. **Throughput thay đổi thế nào?**
-   - **Quantization**: 196% tăng (4.17 → 12.33 img/s @bs=1)
-   - **KD Student**: 700-860% tăng (4.17 → 33-40 img/s @bs=1, tăng 8-10 lần)
-
-4. **Accuracy/F1 giảm nhiều không?**
+2. **Accuracy/F1 giảm nhiều không?**
    - **Quantization**: -0.88% accuracy (-1.35% F1) - giảm rất ít, hoàn toàn chấp nhận
    - **KD Student**: -1.13% accuracy (-1.74% F1) - giảm nhỏ, chấp nhận được
 
-5. **Nếu triển khai trên CPU hoặc edge device, bạn có chọn compressed model không?**
+3. **Nếu triển khai trên CPU hoặc edge device, bạn có chọn compressed model không?**
    - **Có, tùy vào yêu cầu:**
      - Nếu cần cân bằng: chọn **Quantized INT8** (74% nhỏ hơn, 66% nhanh hơn, 97%+ accuracy)
      - Nếu cần tối ưu cực đại: chọn **KD Student** (97% nhỏ hơn, 8x nhanh hơn, 96%+ accuracy)
 
-6. **Nếu không chọn, lý do là gì?**
+4. **Nếu không chọn, lý do là gì?**
    - Ngược lại, tôi chọn cả hai vì:
      - **Quantization** phù hợp cho server/CPU inference - nhanh, nhỏ, đơn giản
      - **KD Student** phù hợp cho edge device/mobile - siêu nhỏ, siêu nhanh, vẫn chính xác
@@ -157,7 +149,8 @@ Viết nhận xét ngắn:
 - Khi bạn có thời gian train (10 epochs ~ vài giờ)
 - Khi bạn muốn inference rất nhanh (mobile app, IoT device)
 - Khi bạn có teacher model mạnh sẵn
-- Khi accuracy không phải priority #1 nhưng speed là
+- Khi độ chính xác không phải ưu tiên hàng đầu nhưng tốc độ inference là yếu tố quyết định
+- (Or in English) When accuracy is not the top priority but inference speed is critical
 - Ví dụ: Mobile app, smart camera, IoT, offline inference
 
 **Nếu được làm lại cho hệ thống Smart Campus, bạn sẽ chọn kỹ thuật nào?**
