@@ -1,0 +1,8 @@
+{
+  "student_checkpoint": "outputs/kd_student/student_best.pt",
+  "best_val_macro_f1": 0.9172061057222347,
+  "student_model": "mobilenet_v2",
+  "teacher_checkpoint": "/kaggle/input/datasets/mi3mi3mi3/teacher/best_model.pt",
+  "alpha": 0.5,
+  "temperature": 4.0
+}

@@ -1,0 +1,8 @@
+{
+  "accuracy": 0.9695817490494296,
+  "macro_f1": 0.9573612728806026,
+  "checkpoint": "/kaggle/working/outputs/kd_student/student_best.pt",
+  "model_size_mb": 8.74341869354248,
+  "num_samples": 789,
+  "student_model": "mobilenet_v2"
+}
