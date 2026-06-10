@@ -2,12 +2,11 @@
 
 ## 1. Thông tin
 
-- Họ tên: [Nhập tên]
-- Mã sinh viên: [Nhập MSSV]
-- Lớp: [Nhập lớp]
+- Họ tên: Nguyễn Mạnh Duy, Lê Trọng Thanh Tùng, Lê Thị Ngọc Bích
+- Mã sinh viên: 1671040006,1671040031,1671040002
+- Lớp: KHMT 16-01
 - Link GitHub repo: https://github.com/FIT-DNU-CS-16-01/csc4005-lab7-khmt_1601_nhom10
 - Kỹ thuật chọn: Cả hai (Quantization + Knowledge Distillation)
-- Link W&B nếu dùng KD: https://wandb.ai/[username]/csc4005-lab7-compression
 - Link model nếu không commit trực tiếp: outputs/kd_student/student_best.pt, models/vit_smartcampus_dynamic_int8.onnx
 
 ## 2. Mô tả baseline model
